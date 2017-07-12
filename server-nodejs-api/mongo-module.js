@@ -7,7 +7,7 @@ const	MongoClient = require('mongodb').MongoClient,
 		};
 
 var	url = "mongodb://" + connection_info.db_user + ":" + connection_info.db_pass + "@" + connection_info.db_ip + ":" + connection_info.db_port,
-	info = {},
+    info = {},
 	totalAge = 0,
 	todayAge = 0,
 	totalEmotion = {
@@ -154,7 +154,48 @@ function ClassifyEmotion(emotion, isToday) {
 }
 
 function InitialiseInfo() {
-	info = {};
+    info = {
+	"count": {
+            "total": 0,
+            "today": 0
+    },
+	    "gender": {
+	        "total": {
+		    "male": 0,
+		    "female": 0
+		},
+	        "today": {
+		    "male": 0,
+		    "female": 0
+		}
+	    },
+	    "age": {
+	        "total": 0,
+	        "today": 0
+	    },
+	    "emotion": {
+	        "total": {
+		    "anger": 0,
+		    "contempt": 0,
+		    "disgust": 0,
+		    "fear": 0,
+		    "happiness": 0,
+		    "neutral": 0,
+		    "sadness": 0,
+		    "surprise": 0
+		},
+	        "today": {
+		    "anger": 0,
+		    "contempt": 0,
+		    "disgust": 0,
+		    "fear": 0,
+		    "happiness": 0,
+		    "neutral": 0,
+		    "sadness": 0,
+		    "surprise": 0
+		}
+	    }
+    };
 	totalAge = 0;
 	todayAge = 0;
 	totalEmotion = {

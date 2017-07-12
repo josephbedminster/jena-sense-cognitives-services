@@ -8,7 +8,7 @@ function PhotoTreatment(seenFaces) {
 		var d = new Date();
 		var data = '';
 		var parsedBody = '';
-	    const postData = '{"url": "http://52.166.147.209/uploads/photo.jpg?t=' + d.getTime() + '"}';
+	    const postData = '{"url": "https://jenablopstore.blob.core.windows.net/image/photo.jpg?t=' + d.getTime() + '"}';
 		var postOptions = {
 			hostname: "westeurope.api.cognitive.microsoft.com",
 			path: "/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,emotion",
