@@ -1,0 +1,8 @@
+bdd:
+user:nextjoey
+pass:
+
+autre user :
+CREATE USER 'server'@'localhost' IDENTIFIED BY 'Erty9t45';
+
+https://jenasense-nextjoey.c9users.io/phpmyadmin 
