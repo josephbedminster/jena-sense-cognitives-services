@@ -1,17 +1,33 @@
 <html>
 <head>
+    <style>
+        h3 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #content {
+            display:inline-block;
+            position: absolute;
+            display: inline-block;
+            top: 10px;
+            padding: 0px 30px;
+        }
+        #body {
+            border:1px solid #d3d3d3;
+        }
+    </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
-<canvas style="display:inline-block;" id="body" width="300" height="225" style="border:1px solid #d3d3d3;">
+    <canvas style="display:inline-block;" id="body" width="300" height="225">
     </canvas>
-    <div id="content" style="display:inline-block;position: absolute;display: inline-block;top: 10px;padding: 20px;">
+    <div id="content">
     </div>
     <script>
         var body = document.getElementById("body");
         setInterval(function(){
             processImage();
-        }, 5000);
+        }, 500000);
     </script>
 
     <script type="text/javascript">
@@ -82,7 +98,7 @@
                         $("#content").append('<h3>Personne ' + (i+1) +'</h3>');
                         $("#content").append('<span id="sex">' + gender + '</span><br>');
                         $("#content").append('<span id="age">' + data[i].faceAttributes.age + ' ans.</span><br>');
-                        $("#content").append('<span id="emotion">' + emotion + '</span>');
+                        $("#content").append('<span id="emotion">' + emotion + '</span><br><br>');
                     }
                 }
                 img.src = 'https://jenablopstore.blob.core.windows.net/image/photo.jpg?t=' + new Date().getTime();
