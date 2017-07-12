@@ -25,7 +25,7 @@
                 "returnFaceAttributes": "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise",
             };
 
-            var sourceImageUrl = "http://137.74.118.14/uploads/photo.jpg?t="+ new Date().getTime();
+            var sourceImageUrl = "http://52.166.147.209/uploads/photo.jpg?t="+ new Date().getTime();
             $.ajax({
                 url: uriBase + "?" + $.param(params),
                 beforeSend: function(xhrObj){
@@ -86,7 +86,7 @@
                     $("#content").append('<span id="emotion">' + emotion + '</span>');
                 }
             }
-            img.src = 'http://137.74.118.14/uploads/photo.jpg?t=' + new Date().getTime();
+            img.src = 'http://52.166.147.209/uploads/photo.jpg?t=' + new Date().getTime();
         })
 
             .fail(function(jqXHR, textStatus, errorThrown) {
