@@ -1,0 +1,101 @@
+<html>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+</head>
+<body>
+    <canvas style="display:inline-block;" id="body" width="600" height="450" style="border:1px solid #d3d3d3;">
+    </canvas>
+    <div id="content" style="display:inline-block;position: absolute;display: inline-block;top: 10px;padding: 20px;">
+    </div>
+    <script>
+        var body = document.getElementById("body");
+        setInterval(function(){
+            processImage();
+        }, 4000);
+    </script>
+
+    <script type="text/javascript">
+        function processImage() {
+            var subscriptionKey = "53ead43b6dd14719b5eff5edaf9a3909";
+            var uriBase = "https://westeurope.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false";
+
+            var params = {
+                "returnFaceId": "true",
+                "returnFaceLandmarks": "false",
+                "returnFaceAttributes": "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise",
+            };
+
+            var sourceImageUrl = "http://137.74.118.14/uploads/photo.jpg?t="+ new Date().getTime();
+            $.ajax({
+                url: uriBase + "?" + $.param(params),
+                beforeSend: function(xhrObj){
+                    xhrObj.setRequestHeader("Content-Type","application/json");
+                    xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+                },
+                type: "POST",
+                data: '{"url": ' + '"' + sourceImageUrl + '"}',
+            })
+
+            .done(function(data) {
+                $("#responseTextArea").val(JSON.stringify(data, null, 2));
+                console.log(data);
+                window.data = data;
+                var ctx = document.getElementById('body').getContext('2d');
+                ctx.clearRect(0, 0, 600, 450);
+                var img = new Image();
+                img.onload = function() {
+                    $("#content").html('');
+                    console.log("ici:",data);
+                var c = document.getElementById("body"); //#body
+                var ctx = c.getContext("2d");
+                ctx.drawImage(img, 0, 0, 600, 450);
+                for (var i = 0; i < data.length; i++) {
+                    console.log(data[i].faceRectangle);
+                    ctx.rect(data[i].faceRectangle.left / 2, (data[i].faceRectangle.top / 2), data[i].faceRectangle.width / 2, data[i].faceRectangle.height / 2);
+                    ctx.strokeStyle = '#0070C9';
+                    ctx.stroke();
+
+                    if (data[i].faceAttributes.gender == "male")
+                        var gender = "Homme";
+                    else
+                        var gender = "Femme";
+                    var emotion = "Emotion : ";
+                    if (data[i].faceAttributes.emotion.anger >= 0.5)
+                        emotion += "Colère";
+                    else if (data[i].faceAttributes.emotion.contempt >= 0.5)
+                        emotion += "Satisfaction";
+                    else if (data[i].faceAttributes.emotion.digust >= 0.5)
+                        emotion += "Dégout";
+                    else if (data[i].faceAttributes.emotion.fear >= 0.5)
+                        emotion += "Peur";
+                    else if (data[i].faceAttributes.emotion.happiness >= 0.5)
+                        emotion += "Joie";
+                    else if (data[i].faceAttributes.emotion.neutral >= 0.5)
+                        emotion += "Neutre";
+                    else if (data[i].faceAttributes.emotion.sadness >= 0.5)
+                        emotion += "Tristess";
+                    else if (data[i].faceAttributes.emotion.surprise >= 0.5)
+                        emotion += "Surprise";
+                    
+                    console.log("sexe:", data[i].faceAttributes.gender);
+                    console.log("age:", data[i].faceAttributes.age);
+                    console.log("emotion:", emotion);
+                    $("#content").append('<h3>Personne ' + (i+1) +'</h3>');
+                    $("#content").append('<span id="sex">' + gender + '</span><br>');
+                    $("#content").append('<span id="age">' + data[i].faceAttributes.age + ' ans.</span><br>');
+                    $("#content").append('<span id="emotion">' + emotion + '</span>');
+                }
+            }
+            img.src = 'http://137.74.118.14/uploads/photo.jpg?t=' + new Date().getTime();
+        })
+
+            .fail(function(jqXHR, textStatus, errorThrown) {
+                var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+                errorString += (jqXHR.responseText === "") ? "" : (jQuery.parseJSON(jqXHR.responseText).message) ? 
+                jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
+                alert(errorString);
+            });
+        };
+    </script>
+</body>
+</html>
