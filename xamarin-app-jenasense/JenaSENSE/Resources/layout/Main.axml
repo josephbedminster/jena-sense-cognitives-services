@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:orientation="vertical"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent">
+    <Button
+        android:text="Recharger"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonAPI" />
+
+    <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/firstBlock">
+      <TextView
+          android:text="Informations utilisateur :"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:layout_width="300dp"
+          android:layout_height="50dp"
+          android:layout_marginLeft="5dp"
+          android:layout_marginBottom="-15dp"
+          android:textSize="24dp"
+          android:id="@+id/firstBlockLabel" />
+    </LinearLayout>
+      <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/totalSection">
+        <TextView
+            android:text="Nombre de personnes total :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="left"
+            android:id="@+id/totalCountLabel" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:id="@+id/totalCountReturn" />
+      </LinearLayout>
+      <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/totalManSection">
+        <TextView
+            android:text="Nombre d'hommes :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="left"
+            android:id="@+id/totalManLabel" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:id="@+id/totalManReturn" />
+      </LinearLayout>
+      <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/totalWomanSection">
+        <TextView
+            android:text="Nombre de femmes :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="left"
+            android:id="@+id/totalWomanLabel" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:id="@+id/totalWomanReturn" />
+      </LinearLayout>
+      <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/totalAgeSection">
+        <TextView
+            android:text="Age Moyen :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="left"
+            android:id="@+id/totalAgeLabel" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:id="@+id/totalAgeReturn" />
+      </LinearLayout>
+
+    <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/secondBlock">
+      <TextView
+          android:text="Analyse des émotions :"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:layout_width="300dp"
+          android:layout_height="50dp"
+          android:layout_marginTop="5dp"
+          android:layout_marginLeft="5dp"
+          android:layout_marginBottom="-15dp"
+          android:textSize="24dp"
+          android:id="@+id/secondBlockLabel" />
+    </LinearLayout>
+      <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/totalAngerSection">
+        <TextView
+            android:text="Colère :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="left"
+            android:id="@+id/totalAngerLabel" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:id="@+id/totalAngerReturn" />
+      </LinearLayout>
+      <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/totalContemptSection">
+        <TextView
+            android:text="Satisfaction :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="left"
+            android:id="@+id/totalContemptLabel" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:id="@+id/totalContemptReturn" />
+      </LinearLayout>
+      <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/totalDisgustSection">
+        <TextView
+            android:text="Dégoût :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="left"
+            android:id="@+id/totalDisgustLabel" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:id="@+id/totalDisgustReturn" />
+      </LinearLayout>
+      <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/totalFearSection">
+        <TextView
+            android:text="Peur :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="left"
+            android:id="@+id/totalFearLabel" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:id="@+id/totalFearReturn" />
+      </LinearLayout>
+      <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/totalHappinessSection">
+        <TextView
+            android:text="Joie :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="left"
+            android:id="@+id/totalHappinessLabel" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:id="@+id/totalHappinessReturn" />
+      </LinearLayout>
+      <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/totalNeutralSection">
+        <TextView
+            android:text="Neutre :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="left"
+            android:id="@+id/totalNeutralLabel" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:id="@+id/totalNeutralReturn" />
+      </LinearLayout>
+      <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/totalSadnessSection">
+        <TextView
+            android:text="Tristesse :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="left"
+            android:id="@+id/totalSadnessLabel" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:id="@+id/totalSadnessReturn" />
+      </LinearLayout>
+      <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/totalSurpriseSection">
+        <TextView
+            android:text="Surprise :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="left"
+            android:id="@+id/totalSurpriseLabel" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:id="@+id/totalSurpriseReturn" />
+      </LinearLayout>
+
+    <Button
+        android:text="WebView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/buttonWeb" />
+  </LinearLayout>
+</ScrollView>
