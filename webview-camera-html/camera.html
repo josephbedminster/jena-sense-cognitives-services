@@ -11,7 +11,7 @@
         var body = document.getElementById("body");
         setInterval(function(){
             processImage();
-        }, 4000);
+        }, 5000);
     </script>
 
     <script type="text/javascript">
@@ -93,7 +93,7 @@
                 var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
                 errorString += (jqXHR.responseText === "") ? "" : (jQuery.parseJSON(jqXHR.responseText).message) ? 
                 jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
-                alert(errorString);
+                console.log(errorString);
             });
         };
     </script>
